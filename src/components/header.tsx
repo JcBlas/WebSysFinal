@@ -5,11 +5,6 @@ function Header() {
   return (
     <header className='p-4 w-screen'>
       <div className='container mx-auto flex items-center justify-between'>
-        <div className=''>
-          <Link href="/">
-            <h1>Logo</h1>
-          </Link>
-        </div>
         <nav className='flex justify-end'>
           <Link href="/" className='mx-8'>
             Home

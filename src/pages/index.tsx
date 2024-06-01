@@ -23,6 +23,7 @@ interface User {
 const useStyles = makeStyles((theme) => ({
   profileSection: {
     padding: theme.spacing(4),
+    textAlign: 'left', // Ensure text is aligned to the left
   },
   mb40: {
     marginBottom: theme.spacing(5),
