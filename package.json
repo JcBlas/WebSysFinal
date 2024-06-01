@@ -11,12 +11,20 @@
   "dependencies": {
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
+    "are-we-there-yet": "^4.0.2",
     "axios": "^1.7.2",
+    "debug": "^4.3.5",
     "formik": "^2.4.6",
+    "gauge": "^5.0.2",
+    "glob": "^10.4.1",
+    "inflight": "^1.0.6",
     "next": "14.2.3",
-    "react": "^18",
-    "react-dom": "^18",
+    "npmlog": "^7.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rimraf": "^5.0.7",
     "swr": "^2.2.5",
+    "uuid": "^9.0.1",
     "yup": "^1.4.0"
   },
   "devDependencies": {
