@@ -2,8 +2,7 @@ import React from "react";
 import useSWR from 'swr';
 import axios from 'axios';
 import Main from "@/layout/mainLayout";
-import { Container, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
+import { Container, Typography } from '@mui/material';
 
 const fetcher = (url: string) => axios.get(url).then(res => res.data);
 
@@ -20,27 +19,7 @@ interface User {
   perfume: Perfume[];
 }
 
-const useStyles = makeStyles((theme) => ({
-  profileSection: {
-    padding: theme.spacing(4),
-    textAlign: 'left', // Ensure text is aligned to the left
-  },
-  mb40: {
-    marginBottom: theme.spacing(5),
-  },
-  whiteText: {
-    color: 'white',
-  },
-  perfumeSection: {
-    marginTop: theme.spacing(4),
-  },
-  perfumeItem: {
-    marginBottom: theme.spacing(3),
-  },
-}));
-
 const Home: React.FC = () => {
-  const classes = useStyles();
   const { data, error } = useSWR<User>('/api/user', fetcher);
 
   if (error) return <div>Error loading user data</div>;
@@ -48,17 +27,17 @@ const Home: React.FC = () => {
 
   return (
     <Main>
-      <Container className={classes.profileSection}>
-        <div className={classes.mb40}>
+      <Container className='profile-section'>
+        <div className="mb-40">
           <Typography variant="h3" gutterBottom>{data.name}</Typography>
-          <Typography variant="h6" gutterBottom className={classes.whiteText}>{data.email}</Typography>
-          <Typography variant="body2" gutterBottom className={classes.whiteText}>{data.bio}</Typography>
+          <Typography variant="h6" gutterBottom style={{ color: 'white' }}>{data.email}</Typography>
+          <Typography variant="body2" gutterBottom style={{ color: 'white' }}>{data.bio}</Typography>
         </div>
-        <Typography variant="h6" gutterBottom className={classes.perfumeSection}>Perfumes</Typography>
+        <Typography variant="h6" gutterBottom style={{ marginTop: '2rem'}}>Perfumes</Typography>
         {data.perfume.map((perfume, index) => (
-          <div key={index} className={classes.perfumeItem}>
-            <Typography variant="h6" gutterBottom className={classes.whiteText}>{perfume.brand}</Typography>
-            <Typography variant="body2" gutterBottom className={classes.whiteText}>{perfume.model}</Typography>
+          <div key={index} style={{ marginBottom: '3rem' }}>
+            <Typography variant="h6" gutterBottom style={{ color: 'white' }}>{perfume.brand}</Typography>
+            <Typography variant="body2" gutterBottom style={{ color: 'white' }}>{perfume.model}</Typography>
           </div>
         ))}
       </Container>
